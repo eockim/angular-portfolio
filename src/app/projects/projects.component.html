@@ -1,0 +1,20 @@
+
+<div *ngIf="selectedHero">
+  <h2>{{selectedProject.name}}</h2>
+  <div><span> id : </span> {{selectedProject.id}}</div>
+  <div>
+    <label>search name : 
+      <input [(ngModel)]="selectedProject.name" placeholder="name">
+    </label>
+  </div>
+</div>
+
+<li *ngFor="let project of projects" (click)="onSelect(project)">
+
+  <h2>{{project.name}}</h2>
+  <div><span> id : </span> {{project.id}}</div>
+  <div><span> desc : </span> {{project.desc}}</div>
+  <div><span> skill : </span> {{project.skill}}</div>
+  <div><span> period : </span> {{project.period}}</div>
+
+</li>

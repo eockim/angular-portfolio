@@ -5,18 +5,31 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { ProjectService } from './project.service';
+import { MessageService } from './message.service';
+import { MessagesComponent } from './messages/messages.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    ProjectDetailComponent,
+    MessagesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    ProjectService,
+    MessageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

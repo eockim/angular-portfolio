@@ -1,11 +1,26 @@
-<li *ngFor="let project of projects" (click)="onSelect(project)">
-  
-    <a routerLink="/detail/{{project.id}}">
-      <h2>{{project.name}}</h2>
-    </a>
-    <div><span> id : </span> {{project.id}}</div>
-    <div><span> desc : </span> {{project.desc}}</div>
-    <div><span> skill : </span> {{project.skill}}</div>
-    <div><span> period : </span> {{project.period}}</div>
-    
-</li>
+<div class="container">
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr class="table-active">
+          <th scope="col" >#</th>
+          <th scope="col">project name</th>
+          <th scope="col">desc</th>
+          <th scope="col">skill</th>
+          <th scope="col">period</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let project of projects">
+        <th>
+          {{project.id}}
+        </th>
+        <td>
+          <a routerLink="/detail/{{project.id}}">{{project.name}}</a> 
+        </td>
+        <td> {{project.desc}} </td>
+        <td> {{project.skill}} </td>
+        <td> {{project.period}} </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

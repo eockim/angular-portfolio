@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../project';
+import { Css } from '../project';
 import { ProjectService } from '../project.service';
 
 @Component({
@@ -9,15 +10,25 @@ import { ProjectService } from '../project.service';
 })
 export class DashboardComponent implements OnInit {
   projects: Project[] = [];
+  projectColors: Css[] = [];
 
   constructor(private _projectService: ProjectService) { }
 
   ngOnInit() {
     this.getProjcets();
+    this.getProjectCss();
   }
 
   getProjcets(): void {
     this._projectService.getProjects()
-      .subscribe(projects => this.projects = projects.slice(1, 5));
+      .subscribe(projects => this.projects = projects.slice(projects.length - 4, projects.length).reverse() );
+      
   }
+
+  getProjectCss(): void{
+    this._projectService.getProjectClass()
+      .subscribe(css => this.projectColors = css);
+  }
+
+
 }

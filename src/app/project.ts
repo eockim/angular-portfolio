@@ -5,3 +5,7 @@ export class Project {
    period : string;
    skill : string;
 }
+
+export class Css {
+  name : string;
+}

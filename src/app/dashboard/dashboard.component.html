@@ -1,8 +1,11 @@
-<h3>Projectss</h3>
-<div class="grid grid-pad">
-  <a *ngFor="let project of projects" class="col-1-4" routerLink="/detail/{{project.id}}">
-    <div>
-      <h4>{{project.name}}</h4>
-    </div>
-  </a>
+<div class="container">
+  <h3>Recent Projectss</h3>
+  <div *ngFor="let project of projects; let i = index" class="alert alert-{{projectColors[i].name}}" role="alert" >
+    <h4 class="alert-heading">{{project.name}}</h4>
+    <p>
+      {{project.skill}}
+    </p>
+    <hr>
+    <p class="mb-0">{{project.desc}}</p>
+  </div>
 </div>

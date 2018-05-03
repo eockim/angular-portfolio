@@ -1,7 +1,9 @@
 <div class="container">
   <h3>Recent Projectss</h3>
   <div *ngFor="let project of projects; let i = index" class="alert alert-{{projectColors[i].name}}" role="alert" >
-    <h4 class="alert-heading">{{project.name}}</h4>
+    <a routerLink="/detail/{{project.id}}">
+       <h4 class="alert-heading">{{project.name}}</h4>
+    </a>
     <p>
       {{project.skill}}
     </p>

@@ -12,6 +12,11 @@ export class ProjectService {
 
   constructor(private _messageService: MessageService) { }
 
+  getDashboard(): Observable<Project[]> {
+    this._messageService.add('ProjectService: fetched dashboard');
+    return of(PROJECTS);
+  }
+
   getProjects(): Observable<Project[]> {
     this._messageService.add('ProjectService: fetched projects');
     return of(PROJECTS);
@@ -19,12 +24,12 @@ export class ProjectService {
 
   getProject(id: number): Observable<Project> {
     
-    // Todo: send the message _after_ fetching the hero
-    this._messageService.add(`ProjectService: fetched project id=${id}`);
+    this._messageService.add(`ProjectService: fetched project name=${ PROJECTS.filter(project => project.id ==id).map(obj => obj.name) }`);
     return of(PROJECTS.find(project => project.id === id));
+
   }
 
-  getProjectClass() : Observable<Css[]> {
+  getDashboardClass() : Observable<Css[]> {
 
     //array mix, ie not support
     for(var i in CSS){

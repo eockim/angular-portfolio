@@ -15,18 +15,18 @@ export class DashboardComponent implements OnInit {
   constructor(private _projectService: ProjectService) { }
 
   ngOnInit() {
-    this.getProjcets();
+    this.getDashboard();
     this.getProjectCss();
   }
 
-  getProjcets(): void {
-    this._projectService.getProjects()
+  getDashboard(): void {
+    this._projectService.getDashboard()
       .subscribe(projects => this.projects = projects.slice(projects.length - 4, projects.length).reverse() );
       
   }
 
   getProjectCss(): void{
-    this._projectService.getProjectClass()
+    this._projectService.getDashboardClass()
       .subscribe(css => this.projectColors = css);
   }
 

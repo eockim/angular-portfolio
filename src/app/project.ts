@@ -4,6 +4,7 @@ export class Project {
    desc : string;
    period : string;
    skill : string;
+   images : string[];
 }
 
 export class Css {

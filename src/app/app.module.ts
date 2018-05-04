@@ -13,6 +13,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavComponent } from './nav/nav.component';
+import { NavService } from './nav.service';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { NavComponent } from './nav/nav.component';
   ],
   providers: [
     ProjectService,
-    MessageService
+    MessageService,
+    NavService
   ],
   bootstrap: [AppComponent]
 })

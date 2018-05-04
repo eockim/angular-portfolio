@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavService } from '../nav.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  title = 'KHJ portfolio';
+
+  constructor(public navService: NavService) { }
 
   ngOnInit() {
   }
-  title = 'KHJ PORTFOLIO';
+
+  selectedBurger = false;
+
+  switch(){
+    return this.navService
+      .switch().subscribe(sw => this.selectedBurger = sw);
+  }
+ 
 }

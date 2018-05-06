@@ -9,20 +9,28 @@ import { ProjectService } from '../project.service';
   styleUrls: [ './dashboard.component.css' ]
 })
 export class DashboardComponent implements OnInit {
-  projects: Project[] = [];
+  projects1st: Project[] = [];
+  projects2nd: Project[] = [];
   projectColors: Css[] = [];
 
   constructor(private _projectService: ProjectService) { }
 
   ngOnInit() {
-    this.getDashboard();
+    this.getDashboard1st();
+    this.getDashboard2nd();
     this.getProjectCss();
   }
 
-  getDashboard(): void {
+  getDashboard1st(): void {
     this._projectService.getDashboard()
-      .subscribe(projects => this.projects = projects.slice(projects.length - 4, projects.length).reverse() );
+      .subscribe(projects => this.projects1st = projects.slice(projects.length - 2, projects.length).reverse() );
       
+  }
+
+  getDashboard2nd(): void {
+    this._projectService.getDashboard()
+      .subscribe(projects => this.projects2nd = projects.slice(projects.length - 4, projects.length - 2).reverse());
+
   }
 
   getProjectCss(): void{

@@ -8,9 +8,7 @@ export class MessageService {
   
   constructor(private _http : HttpClient) {
     this._http.get<{ip : string}>('https://jsonip.com')
-    .subscribe( data => {
-      this.ipAddress = data.ip;
-    });
+    .subscribe( data => this.ipAddress = data.ip);
   }
 
   add(message: string){

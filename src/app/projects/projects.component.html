@@ -18,7 +18,13 @@
           <a routerLink="/detail/{{project.id}}">{{project.name}}</a> 
         </td>
         <td> {{project.desc}} </td>
-        <td> {{project.skill}} </td>
+        <td> 
+          <div *ngFor="let skill of project.skill">
+            <img width="77px" height="78px" src="assets/img/{{skill}}_image.jpeg">
+          </div>
+          <!-- {{project.skill}}  <img src="{{project.skill[0]}}">  -->
+        
+        </td>
         <td> {{project.period}} </td>
       </tr>
     </tbody>

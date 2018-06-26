@@ -3,7 +3,7 @@ export class Project {
    name : string;
    desc : string;
    period : string;
-   skill : string;
+   skill : string[];
    images : string[];
 }
 
